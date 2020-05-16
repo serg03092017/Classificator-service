@@ -1,0 +1,24 @@
+CREATE DATABASE if not exists statistics;
+
+use statistics;
+create table if not exists  EVENTS_TYPES (
+Id INT NOT NULL AUTO_INCREMENT,
+Event_Type varchar(255)  NOT NULL unique,
+
+CONSTRAINT `PK_EVENTS` PRIMARY KEY (Id)
+);
+
+use statistics;
+create table if not exists CLASSIFICATOR (
+Id INT NOT NULL AUTO_INCREMENT,
+Event varchar(255),
+Date_Add DATE NOT NULL,
+
+Event_Type_Id INT NOT NULL,
+
+CONSTRAINT `PK_CLASSIFICATORID` PRIMARY KEY (Id),
+CONSTRAINT `FK_ CLASSIFICATOR _EVENTS` FOREIGN KEY (Event_Type_Id) REFERENCES EVENTS_TYPES (Id)
+
+);
+
+
